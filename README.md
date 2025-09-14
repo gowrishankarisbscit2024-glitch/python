@@ -1,0 +1,24 @@
+# app.py
+from flask import Flask, render_template
+
+# Create a Flask application instance.
+# The `__name__` argument helps Flask find the right locations for resources like templates.
+app = Flask(__name__)
+
+# Define a route for the home page.
+# The '@app.route('/')' decorator tells Flask that this function should be
+# called when a user navigates to the root URL of the website.
+@app.route('/')
+def home():
+    """
+    Renders the index.html template for the home page.
+    """
+    return render_template('index.html')
+
+# Run the application.
+# The `if __name__ == '__main__':` block ensures that the server
+# only runs when the script is executed directly (not when imported).
+if __name__ == '__main__':
+    # `debug=True` provides detailed error messages and automatically
+    # reloads the server when code changes, which is great for development.
+    app.run(debug=True)
